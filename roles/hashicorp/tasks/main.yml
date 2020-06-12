@@ -1,0 +1,29 @@
+---
+- name: get latest {{ hashicorp_product }} version id
+  uri:
+    url: "{{ hashicorp_product_api_url }}"
+    method: GET
+    status_code: 200
+    timeout: 10
+  register: release
+
+- name: take {{ hashicorp_product }}
+  set_fact:
+    version: "{{ release.json | json_query('current_version') }}"
+
+- name: unzip {{ hashicorp_product }}
+  unarchive:
+    src: "{{ hashicorp_product_release_url }}"
+    dest: "{{ hashicorp_tmp_dir }}"
+    remote_src: yes
+
+- name: copy {{ hashicorp_product }} to {{ hashicorp_bin_path }}
+  copy:
+    src: "{{ hashicorp_product_tmp_path }}"
+    dest: "{{ hashicorp_bin_path }}"
+
+- name: remove {{ hashicorp_product }} from
+  file:
+    path: "{{ hashicorp_product_tmp_path }}"
+    state: absent
+  when: hashicorp_cleanup | bool
