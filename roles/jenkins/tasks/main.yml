@@ -1,0 +1,27 @@
+---
+- name: install dependencies packages
+  package:
+    name: "{{ jenkins_dependencies }}"
+    state: present
+
+- name: Add jenkins apt key.
+  apt_key:
+    url: "{{ jenkins_key_url }}"
+    state: present
+
+- name: Add jenkins repository.
+  apt_repository:
+    repo: "{{ jenkins_repository }}"
+    state: present
+    update_cache: true
+
+- name: install jenkins
+  package:
+    name: "jenkins"
+    state: latest
+
+- name: start jenkins service
+  systemd:
+    name: jenkins
+    state: started
+    enabled: yes

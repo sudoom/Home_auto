@@ -15,3 +15,5 @@
         hashicorp_product: "packer"
 
     - role: docker
+
+    - role: jenkins
