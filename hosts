@@ -1,1 +1,6 @@
-localhost ansible_connection=local
+[localhost]
+localhost       ansible_connection=local
+
+[test_servers]
+kubuntu_test    ansible_host=192.168.100.20     ansible_user=testing
+#169.254.1.29

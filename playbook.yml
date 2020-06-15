@@ -1,5 +1,5 @@
 ---
-- hosts: localhost
+- hosts: kubuntu_test
   become: yes
   roles:
     - role: hashicorp
@@ -13,3 +13,5 @@
     - role: hashicorp
       vars:
         hashicorp_product: "packer"
+
+    - role: docker
