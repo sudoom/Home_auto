@@ -19,6 +19,7 @@
 
 - name: copy {{ hashicorp_product }} to {{ hashicorp_bin_path }}
   copy:
+    remote_src: yes
     src: "{{ hashicorp_product_tmp_path }}"
     dest: "{{ hashicorp_bin_path }}"
 
