@@ -1,0 +1,8 @@
+---
+hashicorp_api_url: "https://checkpoint-api.hashicorp.com/v1/check"
+hashicorp_release_url: "https://releases.hashicorp.com"
+
+hashicorp_product_api_url: "{{ hashicorp_api_url }}/{{ hashicorp_product }}"
+hashicorp_product_release_url: "{{ hashicorp_release_url }}/{{ hashicorp_product }}/{{ version }}/{{ hashicorp_product }}_{{ version }}_linux_amd64.zip"
+
+hashicorp_product_tmp_path: "{{ hashicorp_tmp_dir }}/{{ hashicorp_product }}"

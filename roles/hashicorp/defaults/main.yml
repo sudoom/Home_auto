@@ -1,0 +1,5 @@
+---
+hashicorp_product: ""
+hashicorp_cleanup: true
+hashicorp_tmp_dir: "/tmp/"
+hashicorp_bin_path: "/usr/local/bin/"

@@ -1,0 +1,19 @@
+---
+- hosts: kubuntu_test
+  become: yes
+  roles:
+    - role: hashicorp
+      vars:
+        hashicorp_product: "terraform"
+
+    - role: hashicorp
+      vars:
+        hashicorp_product: "vagrant"
+
+    - role: hashicorp
+      vars:
+        hashicorp_product: "packer"
+
+    - role: docker
+
+    - role: jenkins
